@@ -456,9 +456,9 @@ section {
     }
     
     .hero-content h1 {
-        font-size: 4rem;
+        font-size: 5rem !important;
         margin-bottom: 0.8rem;
-        font-family: var(--font-heading);
+        font-family: var(--font-heading) !important;
     }
     
     .hero-content .tagline {
@@ -529,9 +529,9 @@ section {
     }
     
     .hero-content h1 {
-        font-size: 3.5rem;
+        font-size: 6rem !important;
         margin-bottom: 0.5rem;
-        font-family: var(--font-heading);
+        font-family: var(--font-heading) !important;
     }
     
     .hero-content .tagline {
