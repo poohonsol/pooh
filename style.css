@@ -459,7 +459,7 @@ section {
     .hero-content h1 {
         font-size: 5rem !important;
         margin-bottom: 0.2rem;
-        margin-top: -5rem !important;
+        margin-top: 0 !important;
         font-family: var(--font-heading) !important;
     }
     
@@ -469,7 +469,7 @@ section {
     }
     
     .hero-image-frame {
-        margin-top: -2rem;
+        margin-top: 0;
         margin-bottom: 0.5rem;
         max-width: 240px;
         border: 1px solid rgba(212, 175, 55, 0.2);
@@ -536,7 +536,7 @@ section {
     .hero-content h1 {
         font-size: 6rem !important;
         margin-bottom: 0.1rem;
-        margin-top: -6rem !important;
+        margin-top: 0 !important;
         font-family: var(--font-heading) !important;
     }
     
@@ -546,7 +546,7 @@ section {
     }
     
     .hero-image-frame {
-        margin-top: -2.5rem;
+        margin-top: 0;
         margin-bottom: 0.5rem;
         padding: 0;
         max-height: 210px;
