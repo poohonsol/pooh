@@ -842,6 +842,7 @@ section {
     opacity: 0;
     z-index: 1;
     transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .gallery-item:hover::before {
