@@ -370,7 +370,7 @@ section {
 .hero-content h1 {
     font-size: 5.5rem;
     line-height: 1.1;
-    margin-top: 2rem;
+    margin-top: 0;
     margin-bottom: 0rem;
     opacity: 0;
     transform: translateY(30px);
@@ -458,21 +458,24 @@ section {
     
     .hero-content h1 {
         font-size: 5rem !important;
-        margin-bottom: 0.8rem;
+        margin-bottom: 0.2rem;
+        margin-top: 0 !important;
         font-family: var(--font-heading) !important;
     }
     
     .hero-content .tagline {
         font-size: 1rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.3rem;
     }
     
     .hero-image-frame {
-        margin-top: 0.5rem;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
         max-width: 240px;
         border: 1px solid rgba(212, 175, 55, 0.2);
         border-radius: 10px;
         padding: 0;
+    }
     }
 }
 
@@ -532,17 +535,20 @@ section {
     
     .hero-content h1 {
         font-size: 6rem !important;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.1rem;
+        margin-top: 0 !important;
         font-family: var(--font-heading) !important;
     }
     
     .hero-content .tagline {
         font-size: 0.9rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.2rem;
+    }
     }
     
     .hero-image-frame {
-        margin-top: 0.5rem;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
         padding: 0;
         max-height: 210px;
         max-width: 210px;
