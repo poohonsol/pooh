@@ -467,7 +467,7 @@ section {
     }
     
     .hero-image-frame {
-        margin-top: 1.5rem;
+        margin-top: 0.5rem;
         max-width: 240px;
         border: 1px solid rgba(212, 175, 55, 0.2);
         border-radius: 10px;
@@ -540,7 +540,7 @@ section {
     }
     
     .hero-image-frame {
-        margin-top: 1rem;
+        margin-top: 0.5rem;
         padding: 0;
         max-height: 210px;
         max-width: 210px;
