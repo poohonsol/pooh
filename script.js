@@ -107,13 +107,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.querySelector('.lightbox-close');
     const lightboxCaption = document.querySelector('.lightbox-caption');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+
+    // Store all gallery images for navigation
+    let galleryImages = [];
+    let currentImageIndex = 0;
 
     // Add click event to all gallery images
     gallery.addEventListener('click', (e) => {
         if (e.target.tagName === 'IMG') {
+            // Get all images in gallery and filter unique ones
+            galleryImages = Array.from(gallery.querySelectorAll('img')).filter((img, index, arr) => 
+                arr.findIndex(i => i.src === img.src && index < arr.indexOf(i) + imageList.length) === index
+            ).slice(0, imageList.length);
+            
+            // Find current image index
+            currentImageIndex = galleryImages.findIndex(img => img.src === e.target.src);
+            
+            // Show lightbox
+            showLightboxImage(currentImageIndex);
+        }
+    });
+
+    // Function to show image at specific index
+    function showLightboxImage(index) {
+        if (galleryImages.length > 0) {
             lightbox.style.display = 'block';
-            lightboxImg.src = e.target.src;
-            lightboxCaption.textContent = e.target.alt;
+            lightboxImg.src = galleryImages[index].src;
+            lightboxCaption.textContent = galleryImages[index].alt;
+            currentImageIndex = index;
+        }
+    }
+
+    // Navigate to next image
+    lightboxNext.addEventListener('click', () => {
+        if (galleryImages.length > 0) {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            showLightboxImage(currentImageIndex);
+        }
+    });
+
+    // Navigate to previous image
+    lightboxPrev.addEventListener('click', () => {
+        if (galleryImages.length > 0) {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            showLightboxImage(currentImageIndex);
         }
     });
 
@@ -131,8 +170,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close lightbox on ESC key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.style.display === 'block') {
-            lightbox.style.display = 'none';
+        if (lightbox.style.display === 'block') {
+            if (e.key === 'Escape') {
+                lightbox.style.display = 'none';
+            } else if (e.key === 'ArrowRight') {
+                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                showLightboxImage(currentImageIndex);
+            } else if (e.key === 'ArrowLeft') {
+                currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                showLightboxImage(currentImageIndex);
+            }
         }
     });
 

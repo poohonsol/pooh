@@ -1107,6 +1107,36 @@ footer {
     text-decoration: none;
 }
 
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #D4920A;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10000;
+    padding: 10px 20px;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    color: #fff;
+    background: rgba(212, 175, 55, 0.1);
+}
+
 .lightbox-caption {
     margin: auto;
     display: block;
@@ -1134,6 +1164,20 @@ footer {
         top: 15px;
         right: 25px;
         font-size: 40px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        font-size: 30px;
+        padding: 8px 15px;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
     }
 }
 
