@@ -142,11 +142,6 @@ html {
 body {
     font-family: var(--font-body);
     background-color: var(--color-bg);
-    background-image: url('art/background_for_pooh.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     color: var(--color-text);
     line-height: 1.6;
     overflow-x: hidden;
