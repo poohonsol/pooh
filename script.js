@@ -117,13 +117,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add click event to all gallery images
     gallery.addEventListener('click', (e) => {
         if (e.target.tagName === 'IMG') {
-            // Get all images in gallery and filter unique ones
-            galleryImages = Array.from(gallery.querySelectorAll('img')).filter((img, index, arr) => 
-                arr.findIndex(i => i.src === img.src && index < arr.indexOf(i) + imageList.length) === index
-            ).slice(0, imageList.length);
+            // Get all unique images in gallery (first imageList.length only, not duplicates)
+            galleryImages = Array.from(gallery.querySelectorAll('img')).slice(0, imageList.length);
             
             // Find current image index
             currentImageIndex = galleryImages.findIndex(img => img.src === e.target.src);
+            if (currentImageIndex === -1) {
+                currentImageIndex = 0;
+            }
             
             // Show lightbox
             showLightboxImage(currentImageIndex);
@@ -141,25 +142,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Navigate to next image
-    lightboxNext.addEventListener('click', () => {
-        if (galleryImages.length > 0) {
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-            showLightboxImage(currentImageIndex);
-        }
-    });
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (galleryImages.length > 0) {
+                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                showLightboxImage(currentImageIndex);
+            }
+        });
+    }
 
     // Navigate to previous image
-    lightboxPrev.addEventListener('click', () => {
-        if (galleryImages.length > 0) {
-            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-            showLightboxImage(currentImageIndex);
-        }
-    });
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (galleryImages.length > 0) {
+                currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                showLightboxImage(currentImageIndex);
+            }
+        });
+    }
 
     // Close lightbox on click of close button
-    lightboxClose.addEventListener('click', () => {
-        lightbox.style.display = 'none';
-    });
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+    }
 
     // Close lightbox on click outside image
     lightbox.addEventListener('click', (e) => {
@@ -168,15 +177,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Close lightbox on ESC key
+    // Close lightbox on ESC key and navigate with arrow keys
     document.addEventListener('keydown', (e) => {
         if (lightbox.style.display === 'block') {
             if (e.key === 'Escape') {
                 lightbox.style.display = 'none';
             } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
                 currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
                 showLightboxImage(currentImageIndex);
             } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
                 currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
                 showLightboxImage(currentImageIndex);
             }
