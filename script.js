@@ -262,11 +262,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         backgroundColor: '#1a1a1a',
                         scale: 2
                     });
-                    
                     const link = document.createElement('a');
                     link.download = 'pooh-meme.png';
                     link.href = canvas.toDataURL('image/png');
                     link.click();
+
+                    // Reset inputy i dymki po pobraniu
+                    if (christopherInput && bubbleChristopher) {
+                        christopherInput.value = '';
+                        adjustFontSize(bubbleChristopher, 'Hey Pooh!');
+                    }
+                    if (poohInput && bubblePooh) {
+                        poohInput.value = '';
+                        adjustFontSize(bubblePooh, 'Yes Chris?');
+                    }
                 } else {
                     alert('Download feature loading... Please try again in a moment.');
                 }
