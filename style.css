@@ -382,35 +382,54 @@
     }
     
     .tokenomics-boxes {
-        gap: 0.8rem;
+        flex-wrap: nowrap;
+        gap: 0.6rem;
     }
     
     .token-box {
-        padding: 1.2rem 1rem;
-        width: 140px;
+        padding: 1rem 0.6rem;
+        width: auto;
+        min-width: 90px;
+        flex: 1;
     }
     
     .token-value {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
     }
     
     .token-label {
-        font-size: 0.65rem;
+        font-size: 0.55rem;
+    }
+    
+    .token-value .lock-icon {
+        width: 0.7em;
+        height: 0.7em;
     }
 }
 
 @media (max-width: 480px) {
     .tokenomics-boxes {
-        gap: 0.6rem;
+        flex-wrap: nowrap;
+        gap: 0.4rem;
     }
     
     .token-box {
-        width: 110px;
-        padding: 1rem 0.8rem;
+        min-width: 70px;
+        padding: 0.8rem 0.4rem;
     }
     
     .token-value {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+    }
+    
+    .token-label {
+        font-size: 0.5rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .token-value .lock-icon {
+        width: 0.6em;
+        height: 0.6em;
     }
 }
 
