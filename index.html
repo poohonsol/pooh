@@ -59,6 +59,73 @@
             </div>
         </section>
 
+        <!-- Tokenomics Section -->
+        <section id="tokenomics">
+            <h2 class="observe-fade honey-drip">Tokenomics</h2>
+            <div class="tokenomics-boxes observe-fade">
+                <div class="token-box">
+                    <span class="token-label">SUPPLY</span>
+                    <span class="token-value">1B</span>
+                </div>
+                <div class="token-box">
+                    <span class="token-label">LP</span>
+                    <span class="token-value">
+                        100%
+                        <svg class="lock-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 1C8.676 1 6 3.676 6 7v2H4v14h16V9h-2V7c0-3.324-2.676-6-6-6zm0 2c2.276 0 4 1.724 4 4v2H8V7c0-2.276 1.724-4 4-4zm0 10c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/>
+                        </svg>
+                    </span>
+                </div>
+                <div class="token-box">
+                    <span class="token-label">TAX</span>
+                    <span class="token-value">0%</span>
+                </div>
+            </div>
+            <div class="ca-container observe-fade">
+                <button class="btn-copy-ca" id="copyCA" data-ca="PASTE_YOUR_CA_HERE">
+                    <span class="ca-text">COPY CA</span>
+                    <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- Meme Generator Section -->
+        <section id="meme-generator">
+            <h2 class="observe-fade honey-drip">Meme Generator</h2>
+            <div class="meme-container observe-fade">
+                <div class="meme-preview" id="memePreview">
+                    <img src="art/memegenerator.jpg" alt="Meme Template" class="meme-image">
+                    <div class="speech-bubble christopher" id="bubbleChristopher">
+                        <span class="bubble-text">Hey Pooh!</span>
+                    </div>
+                    <div class="speech-bubble pooh" id="bubblePooh">
+                        <span class="bubble-text">Yes Chris?</span>
+                    </div>
+                </div>
+                <div class="meme-controls">
+                    <div class="input-group">
+                        <label for="christopherText">Christopher says:</label>
+                        <input type="text" id="christopherText" placeholder="Hey Pooh!" maxlength="100">
+                    </div>
+                    <div class="input-group">
+                        <label for="poohText">Pooh says:</label>
+                        <input type="text" id="poohText" placeholder="Yes Chris?" maxlength="100">
+                    </div>
+                    <button class="btn-download-meme" id="downloadMeme">
+                        <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download Meme
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- Arts Gallery Section -->
         <section id="arts">
             <h2 class="observe-fade honey-drip">The Gallery</h2>
@@ -82,6 +149,7 @@
         <div class="lightbox-caption"></div>
     </div>
 
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 

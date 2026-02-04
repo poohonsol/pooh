@@ -194,4 +194,89 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Copy CA functionality
+    const copyCABtn = document.getElementById('copyCA');
+    if (copyCABtn) {
+        copyCABtn.addEventListener('click', () => {
+            const ca = copyCABtn.getAttribute('data-ca');
+            navigator.clipboard.writeText(ca).then(() => {
+                const caText = copyCABtn.querySelector('.ca-text');
+                const originalText = caText.textContent;
+                caText.textContent = 'COPIED!';
+                copyCABtn.classList.add('copied');
+                
+                setTimeout(() => {
+                    caText.textContent = originalText;
+                    copyCABtn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    }
+
+    // Meme Generator functionality
+    const christopherInput = document.getElementById('christopherText');
+    const poohInput = document.getElementById('poohText');
+    const bubbleChristopher = document.getElementById('bubbleChristopher');
+    const bubblePooh = document.getElementById('bubblePooh');
+    const downloadBtn = document.getElementById('downloadMeme');
+    const memePreview = document.getElementById('memePreview');
+
+    // Funkcja do automatycznego dopasowania rozmiaru czcionki
+    function adjustFontSize(bubble, text) {
+        const bubbleText = bubble.querySelector('.bubble-text');
+        bubbleText.textContent = text;
+        
+        // Bazowy rozmiar czcionki (w rem)
+        const baseSize = 0.65;
+        const minSize = 0.35;
+        
+        // Zmniejszaj czcionkę w zależności od długości tekstu
+        let fontSize = baseSize;
+        if (text.length > 15) {
+            fontSize = Math.max(minSize, baseSize - (text.length - 15) * 0.015);
+        }
+        
+        bubbleText.style.fontSize = fontSize + 'rem';
+    }
+
+    if (christopherInput && bubbleChristopher) {
+        christopherInput.addEventListener('input', (e) => {
+            const text = e.target.value || 'Hey Pooh!';
+            adjustFontSize(bubbleChristopher, text);
+        });
+    }
+
+    if (poohInput && bubblePooh) {
+        poohInput.addEventListener('input', (e) => {
+            const text = e.target.value || 'Yes Chris?';
+            adjustFontSize(bubblePooh, text);
+        });
+    }
+
+    if (downloadBtn && memePreview) {
+        downloadBtn.addEventListener('click', async () => {
+            try {
+                // Use html2canvas to capture the meme
+                if (typeof html2canvas !== 'undefined') {
+                    const canvas = await html2canvas(memePreview, {
+                        backgroundColor: '#1a1a1a',
+                        scale: 2
+                    });
+                    
+                    const link = document.createElement('a');
+                    link.download = 'pooh-meme.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                } else {
+                    alert('Download feature loading... Please try again in a moment.');
+                }
+            } catch (err) {
+                console.error('Failed to generate meme:', err);
+                alert('Failed to generate meme. Please try again.');
+            }
+        });
+    }
+
 });
