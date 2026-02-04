@@ -387,14 +387,16 @@
     }
     
     .token-box {
-        padding: 1rem 0.6rem;
-        width: auto;
-        min-width: 90px;
-        flex: 1;
+        padding: 0.8rem 0.5rem;
+        width: 85px;
+        min-width: 85px;
+        max-width: 85px;
+        height: 85px;
+        flex: none;
     }
     
     .token-value {
-        font-size: 0.85rem;
+        font-size: 0.7rem;
     }
     
     .token-label {
@@ -402,8 +404,8 @@
     }
     
     .token-value .lock-icon {
-        width: 0.7em;
-        height: 0.7em;
+        width: 0.65em;
+        height: 0.65em;
     }
 }
 
@@ -414,16 +416,19 @@
     }
     
     .token-box {
-        min-width: 70px;
-        padding: 0.8rem 0.4rem;
+        width: 75px;
+        min-width: 75px;
+        max-width: 75px;
+        height: 75px;
+        padding: 0.6rem 0.3rem;
     }
     
     .token-value {
-        font-size: 0.75rem;
+        font-size: 0.6rem;
     }
     
     .token-label {
-        font-size: 0.5rem;
+        font-size: 0.45rem;
         letter-spacing: 0.5px;
     }
     
